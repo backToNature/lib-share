@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>分享demo</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="description" content="demo">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .item {
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .icon {
+            display: inline-block;
+            background: url("http://s3.rr.itc.cn/h5/css/msohu/v3/tags/i/common/share/share-icon-2.png");
+            width: 90px;
+            height: 90px;
+        }
+
+        .icon.weixinFriend {
+            background-position: 0 0;
+        }
+
+        .icon.weixin {
+            background-position: -100px 0;
+        }
+
+        .icon.weibo {
+            background-position: -200px 0;
+        }
+
+        .icon.qzone {
+            background-position: -300px 0;
+        }
+
+        .icon.qq {
+            background-position: 0 -100px;
+        }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="item">
+            <div class="icon weixinFriend" id="weixinF"></div>
+            <p>朋友圈</p>
+        </li>
+        <li class="item" >
+            <div class="icon weixin" id='weixin'></div>
+            <p>微信</p>
+        </li>
+        <li class="item">
+            <div class="icon weibo" id="weibo"></div>
+            <p>微博</p>
+        </li>
+        <li class="item">
+            <div class="icon qzone" id="qzone"></div>
+            <p>空间</p>
+        </li>
+        <li class="item">
+            <div class="icon qq" id="qq"></div>
+            <p>qq</p>
+        </li>
+    </ul>
+    <script src="../share.js"></script>
+    <script>
+        var config = {
+            url:'http://changyan.sohu.com',
+            title:'畅言一下，马上出发',
+            content:'畅言是社会化评论框，提供你许多精彩的功能，爽歪歪',
+            pic:'http://comment.bjcnc.img.sohucs.com/a_auto/pKS8yc8.jpg'
+        };
+        var shareObj = new Share(config)
+        document.getElementsByTagName('ul')[0].addEventListener('click', function (e) {
+            if(e.target.className.indexOf('icon') !== -1 ) {
+                shareObj.share(e.target.id);
+            }
+        }, false);
+    </script>
+</body>
+</html>
